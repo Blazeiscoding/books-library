@@ -37,7 +37,7 @@ The **Book Library** application allows users to search, sort, and browse books 
 
 ## Deployment
 The project is live at:
-[**Live Demo**](https://your-deployment-link.com)
+[**Live Demo**](https://bookslibraryjs.netlify.app/)
 
 ---
 **Author:** Nikhil Rathore  
