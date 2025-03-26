@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f0f4f8;
+    --text-color: #2c3e50;
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.search-sort-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#searchInput, #sortSelect {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 250px;
+}
+
+#searchInput:focus, #sortSelect:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.view-toggle button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.view-toggle button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.view-toggle button.active {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.books-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.book-card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    box-shadow: 0 15px 30px var(--shadow-color);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.book-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.book-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover img {
+    transform: scale(1.05);
+}
+
+.book-details {
+    padding: 20px;
+    background-color: var(--card-background);
+}
+
+.book-details h2 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.book-details p {
+    color: #6c757d;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.book-details a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.book-details a:hover {
+    background-color: var(--secondary-color);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.pagination button {
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.pagination button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.pagination button:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (max-width: 768px) {
+    .search-sort-container {
+        flex-direction: column;
+    }
+
+    #searchInput, #sortSelect {
+        width: 100%;
+    }
+
+    .view-toggle {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}
